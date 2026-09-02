@@ -1,0 +1,53 @@
+# Ignore outputs and slurm logs
+Model_Optimizations/outputs/
+slurm-*.out
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+.venv/
+dist/
+build/
+*.egg-info/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Model weights and local caches
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+cache/
+
+# Verbose benchmark process logs are preserved locally but excluded from the
+# portfolio repository. Result JSON, environment metadata, telemetry, and
+# normalized exports remain versioned and reproducible.
+bench/bench_results/**/bench_log/
+bench/bench_results/**/serve_log/
+
+# OS/editor noise
+.DS_Store
+
+# Local AI assistant artifacts
+.codex
+.codex/
+.agents/
+.cursor/
+.aider/
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+CHATGPT.md
+COPILOT.md

@@ -1,0 +1,14 @@
+*
+!Dockerfile
+!nginx.conf
+!Group8-LLMOptimization.pdf
+!scripts/
+!scripts/build_site.py
+!site/
+!site/**
+!results/
+!results/summary.json
+!results/benchmark_results.csv
+!results/gpu_telemetry_summary.csv
+!figures/
+!figures/*.png

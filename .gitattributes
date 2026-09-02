@@ -1,0 +1,7 @@
+* text=auto
+*.png binary
+*.pdf binary
+
+# nvidia-smi dmon emits fixed-width rows with intentional trailing spaces.
+bench/bench_results/**/mon/*.txt whitespace=-trailing-space
+help/*.txt whitespace=-trailing-space

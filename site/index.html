@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Reproducible Llama model and vLLM runtime optimization study on NVIDIA H200.">
+    <title>Distill or Optimize? | LLM Performance Study</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <header class="hero">
+      <nav><a class="brand" href="#top">LLM Optimization</a><div><a href="#results">Results</a><a href="#figures">Figures</a><a id="repo-link" href="../">Repository</a></div></nav>
+      <div class="hero-copy" id="top">
+        <p class="eyebrow">MODEL COMPRESSION × INFERENCE SYSTEMS</p>
+        <h1>Distill or <span>Optimize?</span></h1>
+        <p class="lede">A reproducible comparison of Llama teacher–student training and vLLM serving optimizations across latency, throughput, load, and GPU telemetry.</p>
+        <div class="actions"><a class="button primary" href="#results">Explore results</a><a class="button" href="downloads/benchmark_results.csv">Download data</a></div>
+      </div>
+    </header>
+    <main>
+      <section class="metrics" aria-label="Experiment scale">
+        <article><strong id="experiments">171</strong><span>GPU experiments</span></article>
+        <article><strong id="requests">34,200</strong><span>completed requests</span></article>
+        <article><strong id="tokens">22.2M</strong><span>tokens processed</span></article>
+        <article><strong id="completion">100%</strong><span>recorded completion</span></article>
+      </section>
+      <section id="results">
+        <p class="eyebrow">HIGH-LOAD RESULT · 512 INPUT / 128 OUTPUT · 16 REQ/S</p>
+        <h2>Serving efficiency at the tail</h2>
+        <div class="result-grid">
+          <article class="result-card accent"><span>Llama 3.1-8B</span><strong>11.8×</strong><p>request-throughput improvement</p><small>1.28 → 15.07 req/s</small></article>
+          <article class="result-card"><span>Llama 3.1-8B</span><strong>99.2%</strong><p>lower p99 end-to-end latency</p><small>142.4 s → 1.10 s</small></article>
+          <article class="result-card"><span>Llama 3.2-3B</span><strong>1,969</strong><p>output tokens per second</p><small>96.2% of offered load</small></article>
+        </div>
+        <p class="caveat">The comparison control serializes requests with <code>--max-num-seqs 1</code>; large tail improvements primarily quantify queueing avoidance, not kernel acceleration.</p>
+      </section>
+      <section class="split">
+        <div><p class="eyebrow">MODEL OPTIMIZATION</p><h2>8B teacher → 3B student</h2><p>Cross-entropy fine-tuning, full-logit and top-k knowledge distillation, hidden-state alignment, and correctness-filtered sequence distillation.</p><strong class="inline-stat">62.5% nominal parameter reduction</strong></div>
+        <div><p class="eyebrow">RUNTIME OPTIMIZATION</p><h2>Ten serving configurations</h2><p>Continuous batching, chunked prefill, prefix caching, async scheduling, 4-bit quantization, and multiple speculative-decoding strategies.</p><strong class="inline-stat">1–16 requests/s tested</strong></div>
+      </section>
+      <section id="figures">
+        <p class="eyebrow">REPRODUCIBLE ANALYSIS</p><h2>Performance figures</h2>
+        <div class="gallery" id="gallery"><p>Loading figures…</p></div>
+      </section>
+      <section class="method">
+        <p class="eyebrow">METHODOLOGY</p><h2>Evidence, not marketing</h2>
+        <div class="method-grid"><article><strong>2</strong><p>Llama model sizes</p></article><article><strong>19</strong><p>model/variant combinations</p></article><article><strong>9</strong><p>workload points each</p></article><article><strong>18.4K</strong><p>GPU telemetry samples</p></article></div>
+        <p>One run is available per point, workloads use random synthetic tokens, and no checked-in model-quality summary supports an accuracy-retention claim. The downloadable data and source code preserve those boundaries.</p>
+        <div class="actions"><a class="button primary" href="downloads/gpu_telemetry_summary.csv">GPU telemetry</a><a class="button" href="downloads/project_proposal.pdf">Project proposal</a></div>
+      </section>
+    </main>
+    <footer><p>Georgia Tech CS 4675/6675 · Built for reproducibility and honest performance engineering.</p></footer>
+  </body>
+</html>

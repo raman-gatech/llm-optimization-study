@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this project, cite the repository and the Group 8 contributors."
+title: "Distill or Optimize? LLM Model and Runtime Optimization Study"
+type: software
+version: 1.0.0
+date-released: 2026-09-01
+authors:
+  - family-names: Swaminathan
+    given-names: Ramanathan
+  - family-names: Okamoto
+    given-names: Mika
+  - family-names: Jhunjhunwala
+    given-names: Hardik
+  - family-names: Diao
+    given-names: Chengsong
+  - family-names: Daylak
+    given-names: Erenay
+license: MIT

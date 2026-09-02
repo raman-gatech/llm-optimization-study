@@ -1,0 +1,652 @@
+{
+  "addon_changes_vs_default": {
+    "Llama-3.1-8B": {
+      "all+q": {
+        "median_output_throughput_pct": -1.618911,
+        "median_p99_e2el_reduction_pct": -158.489066,
+        "median_p99_ttft_reduction_pct": -108.182851,
+        "paired_points": 9
+      },
+      "all+sd(1B)": {
+        "median_output_throughput_pct": -0.571731,
+        "median_p99_e2el_reduction_pct": -181.033999,
+        "median_p99_ttft_reduction_pct": -158.780018,
+        "paired_points": 9
+      },
+      "all+sd(1B+p)": {
+        "median_output_throughput_pct": 0.753362,
+        "median_p99_e2el_reduction_pct": 8.526111,
+        "median_p99_ttft_reduction_pct": -38.840472,
+        "paired_points": 9
+      },
+      "all+sd(3B)": {
+        "median_output_throughput_pct": -1.167616,
+        "median_p99_e2el_reduction_pct": -201.861839,
+        "median_p99_ttft_reduction_pct": -288.424536,
+        "paired_points": 9
+      }
+    },
+    "Llama-3.2-3B": {
+      "all+q": {
+        "median_output_throughput_pct": -0.698416,
+        "median_p99_e2el_reduction_pct": -121.9905,
+        "median_p99_ttft_reduction_pct": -142.900834,
+        "paired_points": 9
+      },
+      "all+sd(1B)": {
+        "median_output_throughput_pct": -0.824404,
+        "median_p99_e2el_reduction_pct": -308.568963,
+        "median_p99_ttft_reduction_pct": -261.647641,
+        "paired_points": 9
+      },
+      "all+sd(1B+p)": {
+        "median_output_throughput_pct": -0.074801,
+        "median_p99_e2el_reduction_pct": -35.951575,
+        "median_p99_ttft_reduction_pct": -65.116548,
+        "paired_points": 9
+      }
+    }
+  },
+  "caveats": [
+    "One run is available per model/variant/workload point; no confidence intervals are implied.",
+    "The no-opts control uses --max-num-seqs 1 and is a serialized control, not a complete removal of continuous batching.",
+    "Workloads use synthetic random tokens rather than production or GSM8K request traces.",
+    "The runtime corpus benchmarks base 3B and 8B models, not the distilled checkpoints.",
+    "No checked-in model-quality summaries support an accuracy-retention claim."
+  ],
+  "experiment_scale": {
+    "aggregate_benchmark_duration_s": 16860.45305,
+    "completed_requests": 34200,
+    "failed_requests": 0,
+    "gpu_telemetry_fields_per_sample": 21,
+    "input_token_range": [
+      128,
+      768
+    ],
+    "input_tokens": 16503400,
+    "model_variant_combinations": 19,
+    "models": 2,
+    "offered_qps_range": [
+      1.0,
+      16.0
+    ],
+    "output_token_range": [
+      32,
+      512
+    ],
+    "output_tokens": 5715200,
+    "parseable_gpu_telemetry_samples": 18435,
+    "recorded_completion_rate_pct": 100.0,
+    "result_json_files": 171,
+    "serving_variants_overall": 10,
+    "total_tokens": 22218600,
+    "workload_points_per_complete_combination": 9
+  },
+  "high_load_512x128_at_16_qps": {
+    "Llama-3.1-8B": {
+      "highest_request_throughput": {
+        "achieved_request_throughput": 15.571937,
+        "input_len": 512,
+        "model": "Llama-3.1-8B",
+        "offered_load_attained_pct": 97.324604,
+        "offered_qps": 16.0,
+        "output_len": 128,
+        "output_throughput": 1993.207881,
+        "p99_e2el_ms": 1303.460039,
+        "p99_e2el_reduction_pct_vs_control": 99.084593,
+        "p99_e2el_speedup_vs_control": 109.240982,
+        "request_throughput_speedup_vs_control": 12.177453,
+        "source_file": "bench/bench_results/Llama-3.1-8B/NVIDIA-H200/vllm-0.18.0-all+sd(1B+p)/result/default-random-512x128-16qps-200p.json",
+        "total_token_throughput": 9950.467467,
+        "variant": "all+sd(1B+p)"
+      },
+      "lowest_p99_e2el": {
+        "achieved_request_throughput": 15.073773,
+        "input_len": 512,
+        "model": "Llama-3.1-8B",
+        "offered_load_attained_pct": 94.211079,
+        "offered_qps": 16.0,
+        "output_len": 128,
+        "output_throughput": 1929.442888,
+        "p99_e2el_ms": 1103.083547,
+        "p99_e2el_reduction_pct_vs_control": 99.225315,
+        "p99_e2el_speedup_vs_control": 129.084742,
+        "request_throughput_speedup_vs_control": 11.787882,
+        "source_file": "bench/bench_results/Llama-3.1-8B/NVIDIA-H200/vllm-0.18.0-default/result/default-random-512x128-16qps-200p.json",
+        "total_token_throughput": 9632.140669,
+        "variant": "default"
+      },
+      "serialized_control": {
+        "achieved_request_throughput": 1.278752,
+        "input_len": 512,
+        "model": "Llama-3.1-8B",
+        "offered_qps": 16.0,
+        "output_len": 128,
+        "output_throughput": 163.680195,
+        "p99_e2el_ms": 142391.254868,
+        "source_file": "bench/bench_results/Llama-3.1-8B/NVIDIA-H200/vllm-0.18.0-no-opts/result/default-random-512x128-16qps-200p.json",
+        "variant": "no-opts"
+      }
+    },
+    "Llama-3.2-3B": {
+      "highest_request_throughput": {
+        "achieved_request_throughput": 15.38824,
+        "input_len": 512,
+        "model": "Llama-3.2-3B",
+        "offered_load_attained_pct": 96.176499,
+        "offered_qps": 16.0,
+        "output_len": 128,
+        "output_throughput": 1969.694702,
+        "p99_e2el_ms": 3139.677059,
+        "p99_e2el_reduction_pct_vs_control": 96.409685,
+        "p99_e2el_speedup_vs_control": 27.852706,
+        "request_throughput_speedup_vs_control": 7.764392,
+        "source_file": "bench/bench_results/Llama-3.2-3B/NVIDIA-H200/vllm-0.18.0-default/result/default-random-512x128-16qps-200p.json",
+        "total_token_throughput": 9833.085271,
+        "variant": "default"
+      },
+      "lowest_p99_e2el": {
+        "achieved_request_throughput": 15.383383,
+        "input_len": 512,
+        "model": "Llama-3.2-3B",
+        "offered_load_attained_pct": 96.146142,
+        "offered_qps": 16.0,
+        "output_len": 128,
+        "output_throughput": 1969.072998,
+        "p99_e2el_ms": 695.320306,
+        "p99_e2el_reduction_pct_vs_control": 99.20488,
+        "p99_e2el_speedup_vs_control": 125.767221,
+        "request_throughput_speedup_vs_control": 7.761941,
+        "source_file": "bench/bench_results/Llama-3.2-3B/NVIDIA-H200/vllm-0.18.0-cb+as/result/default-random-512x128-16qps-200p.json",
+        "total_token_throughput": 9829.981607,
+        "variant": "cb+as"
+      },
+      "serialized_control": {
+        "achieved_request_throughput": 1.981899,
+        "input_len": 512,
+        "model": "Llama-3.2-3B",
+        "offered_qps": 16.0,
+        "output_len": 128,
+        "output_throughput": 253.683071,
+        "p99_e2el_ms": 87448.502678,
+        "source_file": "bench/bench_results/Llama-3.2-3B/NVIDIA-H200/vllm-0.18.0-no-opts/result/default-random-512x128-16qps-200p.json",
+        "variant": "no-opts"
+      }
+    }
+  },
+  "median_speedups_vs_serialized_control": {
+    "Llama-3.1-8B": {
+      "all+q": {
+        "median_percent_improvement": {
+          "output_throughput": 129.590688,
+          "p50_e2el_ms": 95.756978,
+          "p50_tpot_ms": -154.402636,
+          "p50_ttft_ms": 99.890046,
+          "p99_e2el_ms": 97.607625,
+          "p99_tpot_ms": -169.735687,
+          "p99_ttft_ms": 99.899777
+        },
+        "median_speedup": {
+          "output_throughput": 2.295907,
+          "p50_e2el_ms": 23.56811,
+          "p50_tpot_ms": 0.393078,
+          "p50_ttft_ms": 909.474901,
+          "p99_e2el_ms": 41.799475,
+          "p99_tpot_ms": 0.370733,
+          "p99_ttft_ms": 997.779515
+        },
+        "paired_points": 9
+      },
+      "all+sd(1B)": {
+        "median_percent_improvement": {
+          "output_throughput": 133.188981,
+          "p50_e2el_ms": 98.179159,
+          "p50_tpot_ms": -19.779739,
+          "p50_ttft_ms": 99.831595,
+          "p99_e2el_ms": 97.547559,
+          "p99_tpot_ms": -209.280525,
+          "p99_ttft_ms": 99.811124
+        },
+        "median_speedup": {
+          "output_throughput": 2.33189,
+          "p50_e2el_ms": 54.91969,
+          "p50_tpot_ms": 0.834866,
+          "p50_ttft_ms": 593.807199,
+          "p99_e2el_ms": 40.775693,
+          "p99_tpot_ms": 0.323331,
+          "p99_ttft_ms": 529.448871
+        },
+        "paired_points": 9
+      },
+      "all+sd(1B+p)": {
+        "median_percent_improvement": {
+          "output_throughput": 135.12683,
+          "p50_e2el_ms": 99.430119,
+          "p50_tpot_ms": 64.297164,
+          "p50_ttft_ms": 99.931656,
+          "p99_e2el_ms": 99.084593,
+          "p99_tpot_ms": 9.611581,
+          "p99_ttft_ms": 99.928
+        },
+        "median_speedup": {
+          "output_throughput": 2.351268,
+          "p50_e2el_ms": 175.475081,
+          "p50_tpot_ms": 2.800898,
+          "p50_ttft_ms": 1463.195669,
+          "p99_e2el_ms": 109.240982,
+          "p99_tpot_ms": 1.106336,
+          "p99_ttft_ms": 1388.89786
+        },
+        "paired_points": 9
+      },
+      "all+sd(3B)": {
+        "median_percent_improvement": {
+          "output_throughput": 128.218205,
+          "p50_e2el_ms": 97.30553,
+          "p50_tpot_ms": -73.521484,
+          "p50_ttft_ms": 99.750312,
+          "p99_e2el_ms": 97.22534,
+          "p99_tpot_ms": -230.321015,
+          "p99_ttft_ms": 99.831939
+        },
+        "median_speedup": {
+          "output_throughput": 2.282182,
+          "p50_e2el_ms": 37.113053,
+          "p50_tpot_ms": 0.576298,
+          "p50_ttft_ms": 400.499881,
+          "p99_e2el_ms": 36.040454,
+          "p99_tpot_ms": 0.302736,
+          "p99_ttft_ms": 595.021242
+        },
+        "paired_points": 9
+      },
+      "cb": {
+        "median_percent_improvement": {
+          "output_throughput": 133.024772,
+          "p50_e2el_ms": 98.193488,
+          "p50_tpot_ms": -7.843311,
+          "p50_ttft_ms": 99.950031,
+          "p99_e2el_ms": 98.934127,
+          "p99_tpot_ms": -19.562973,
+          "p99_ttft_ms": 99.952977
+        },
+        "median_speedup": {
+          "output_throughput": 2.330248,
+          "p50_e2el_ms": 55.35528,
+          "p50_tpot_ms": 0.927271,
+          "p50_ttft_ms": 2001.237235,
+          "p99_e2el_ms": 93.819787,
+          "p99_tpot_ms": 0.836379,
+          "p99_ttft_ms": 2126.636457
+        },
+        "paired_points": 9
+      },
+      "cb+as": {
+        "median_percent_improvement": {
+          "output_throughput": 133.338023,
+          "p50_e2el_ms": 98.390896,
+          "p50_tpot_ms": 5.048417,
+          "p50_ttft_ms": 99.943347,
+          "p99_e2el_ms": 99.054766,
+          "p99_tpot_ms": -5.501378,
+          "p99_ttft_ms": 99.951932
+        },
+        "median_speedup": {
+          "output_throughput": 2.33338,
+          "p50_e2el_ms": 62.146397,
+          "p50_tpot_ms": 1.053168,
+          "p50_ttft_ms": 1765.130684,
+          "p99_e2el_ms": 105.793954,
+          "p99_tpot_ms": 0.947855,
+          "p99_ttft_ms": 2080.392411
+        },
+        "paired_points": 9
+      },
+      "cb+cp": {
+        "median_percent_improvement": {
+          "output_throughput": 133.047272,
+          "p50_e2el_ms": 98.203939,
+          "p50_tpot_ms": -6.748373,
+          "p50_ttft_ms": 99.950613,
+          "p99_e2el_ms": 98.936817,
+          "p99_tpot_ms": -17.667055,
+          "p99_ttft_ms": 99.959882
+        },
+        "median_speedup": {
+          "output_throughput": 2.330473,
+          "p50_e2el_ms": 55.677393,
+          "p50_tpot_ms": 0.936782,
+          "p50_ttft_ms": 2024.834886,
+          "p99_e2el_ms": 94.057161,
+          "p99_tpot_ms": 0.849856,
+          "p99_ttft_ms": 2492.669311
+        },
+        "paired_points": 9
+      },
+      "cb+pc": {
+        "median_percent_improvement": {
+          "output_throughput": 133.027245,
+          "p50_e2el_ms": 98.19308,
+          "p50_tpot_ms": -8.271072,
+          "p50_ttft_ms": 99.949509,
+          "p99_e2el_ms": 98.826878,
+          "p99_tpot_ms": -19.88759,
+          "p99_ttft_ms": 99.957218
+        },
+        "median_speedup": {
+          "output_throughput": 2.330272,
+          "p50_e2el_ms": 55.342799,
+          "p50_tpot_ms": 0.923608,
+          "p50_ttft_ms": 1980.546222,
+          "p99_e2el_ms": 85.242647,
+          "p99_tpot_ms": 0.834115,
+          "p99_ttft_ms": 2337.418203
+        },
+        "paired_points": 9
+      },
+      "default": {
+        "median_percent_improvement": {
+          "output_throughput": 133.368719,
+          "p50_e2el_ms": 98.405735,
+          "p50_tpot_ms": 6.004567,
+          "p50_ttft_ms": 99.943988,
+          "p99_e2el_ms": 99.064,
+          "p99_tpot_ms": -4.238535,
+          "p99_ttft_ms": 99.953951
+        },
+        "median_speedup": {
+          "output_throughput": 2.333687,
+          "p50_e2el_ms": 62.724836,
+          "p50_tpot_ms": 1.063881,
+          "p50_ttft_ms": 1785.317035,
+          "p99_e2el_ms": 106.837554,
+          "p99_tpot_ms": 0.959338,
+          "p99_ttft_ms": 2171.612893
+        },
+        "paired_points": 9
+      }
+    },
+    "Llama-3.2-3B": {
+      "all+q": {
+        "median_percent_improvement": {
+          "output_throughput": 49.793898,
+          "p50_e2el_ms": 94.69621,
+          "p50_tpot_ms": -100.420648,
+          "p50_ttft_ms": 99.837116,
+          "p99_e2el_ms": 96.633794,
+          "p99_tpot_ms": -127.887884,
+          "p99_ttft_ms": 99.831393
+        },
+        "median_speedup": {
+          "output_throughput": 1.497939,
+          "p50_e2el_ms": 18.854442,
+          "p50_tpot_ms": 0.498951,
+          "p50_ttft_ms": 613.935588,
+          "p99_e2el_ms": 29.707034,
+          "p99_tpot_ms": 0.438812,
+          "p99_ttft_ms": 593.094983
+        },
+        "paired_points": 9
+      },
+      "all+sd(1B)": {
+        "median_percent_improvement": {
+          "output_throughput": 49.60385,
+          "p50_e2el_ms": 95.893801,
+          "p50_tpot_ms": -75.847179,
+          "p50_ttft_ms": 99.676761,
+          "p99_e2el_ms": 94.829742,
+          "p99_tpot_ms": -321.604955,
+          "p99_ttft_ms": 99.780375
+        },
+        "median_speedup": {
+          "output_throughput": 1.496038,
+          "p50_e2el_ms": 24.353424,
+          "p50_tpot_ms": 0.568676,
+          "p50_ttft_ms": 309.368303,
+          "p99_e2el_ms": 19.341395,
+          "p99_tpot_ms": 0.237189,
+          "p99_ttft_ms": 455.321806
+        },
+        "paired_points": 9
+      },
+      "all+sd(1B+p)": {
+        "median_percent_improvement": {
+          "output_throughput": 50.734606,
+          "p50_e2el_ms": 98.626689,
+          "p50_tpot_ms": 48.022561,
+          "p50_ttft_ms": 99.867601,
+          "p99_e2el_ms": 98.035463,
+          "p99_tpot_ms": -45.312412,
+          "p99_ttft_ms": 99.846397
+        },
+        "median_speedup": {
+          "output_throughput": 1.507346,
+          "p50_e2el_ms": 72.816728,
+          "p50_tpot_ms": 1.923912,
+          "p50_ttft_ms": 755.291612,
+          "p99_e2el_ms": 50.902587,
+          "p99_tpot_ms": 0.688172,
+          "p99_ttft_ms": 651.028752
+        },
+        "paired_points": 9
+      },
+      "cb": {
+        "median_percent_improvement": {
+          "output_throughput": 50.657507,
+          "p50_e2el_ms": 97.203848,
+          "p50_tpot_ms": -8.021575,
+          "p50_ttft_ms": 99.928556,
+          "p99_e2el_ms": 98.194427,
+          "p99_tpot_ms": -19.14362,
+          "p99_ttft_ms": 99.940983
+        },
+        "median_speedup": {
+          "output_throughput": 1.506575,
+          "p50_e2el_ms": 35.763434,
+          "p50_tpot_ms": 0.925741,
+          "p50_ttft_ms": 1399.694345,
+          "p99_e2el_ms": 55.384082,
+          "p99_tpot_ms": 0.839323,
+          "p99_ttft_ms": 1694.433588
+        },
+        "paired_points": 9
+      },
+      "cb+as": {
+        "median_percent_improvement": {
+          "output_throughput": 50.827732,
+          "p50_e2el_ms": 97.603961,
+          "p50_tpot_ms": 7.983412,
+          "p50_ttft_ms": 99.920669,
+          "p99_e2el_ms": 98.439377,
+          "p99_tpot_ms": 2.088638,
+          "p99_ttft_ms": 99.935608
+        },
+        "median_speedup": {
+          "output_throughput": 1.508277,
+          "p50_e2el_ms": 41.735553,
+          "p50_tpot_ms": 1.086761,
+          "p50_ttft_ms": 1260.54307,
+          "p99_e2el_ms": 64.076966,
+          "p99_tpot_ms": 1.021332,
+          "p99_ttft_ms": 1552.997334
+        },
+        "paired_points": 9
+      },
+      "cb+cp": {
+        "median_percent_improvement": {
+          "output_throughput": 50.635068,
+          "p50_e2el_ms": 97.157598,
+          "p50_tpot_ms": -10.037641,
+          "p50_ttft_ms": 99.927062,
+          "p99_e2el_ms": 98.163619,
+          "p99_tpot_ms": -21.172992,
+          "p99_ttft_ms": 99.93934
+        },
+        "median_speedup": {
+          "output_throughput": 1.506351,
+          "p50_e2el_ms": 35.18151,
+          "p50_tpot_ms": 0.90878,
+          "p50_ttft_ms": 1371.029563,
+          "p99_e2el_ms": 54.454931,
+          "p99_tpot_ms": 0.825266,
+          "p99_ttft_ms": 1648.533111
+        },
+        "paired_points": 9
+      },
+      "cb+pc": {
+        "median_percent_improvement": {
+          "output_throughput": 50.617848,
+          "p50_e2el_ms": 97.110511,
+          "p50_tpot_ms": -11.638539,
+          "p50_ttft_ms": 99.926834,
+          "p99_e2el_ms": 98.131032,
+          "p99_tpot_ms": -19.221477,
+          "p99_ttft_ms": 99.943539
+        },
+        "median_speedup": {
+          "output_throughput": 1.506178,
+          "p50_e2el_ms": 34.608194,
+          "p50_tpot_ms": 0.895748,
+          "p50_ttft_ms": 1366.757452,
+          "p99_e2el_ms": 53.505464,
+          "p99_tpot_ms": 0.838775,
+          "p99_ttft_ms": 1771.137395
+        },
+        "paired_points": 9
+      },
+      "default": {
+        "median_percent_improvement": {
+          "output_throughput": 50.847442,
+          "p50_e2el_ms": 97.64188,
+          "p50_tpot_ms": 9.611121,
+          "p50_ttft_ms": 99.921416,
+          "p99_e2el_ms": 96.409685,
+          "p99_tpot_ms": -1.141719,
+          "p99_ttft_ms": 99.388921
+        },
+        "median_speedup": {
+          "output_throughput": 1.508474,
+          "p50_e2el_ms": 42.406657,
+          "p50_tpot_ms": 1.106331,
+          "p50_ttft_ms": 1272.520689,
+          "p99_e2el_ms": 27.852706,
+          "p99_tpot_ms": 0.988712,
+          "p99_ttft_ms": 163.644848
+        },
+        "paired_points": 9
+      }
+    }
+  },
+  "model_size_comparison": {
+    "comparison": "Llama-3.2-3B versus Llama-3.1-8B under vLLM default",
+    "median_3b_improvement_pct": {
+      "output_throughput": 0.42219,
+      "p50_e2el_ms": 39.134708,
+      "p50_tpot_ms": 39.22119,
+      "p50_ttft_ms": 34.713177,
+      "p99_e2el_ms": 36.738213,
+      "p99_tpot_ms": 37.637355,
+      "p99_ttft_ms": 29.776555
+    },
+    "nominal_parameter_reduction_pct": 62.5,
+    "nominal_size_ratio": 2.666667,
+    "paired_points": 9
+  },
+  "observed_upper_bounds": {
+    "Llama-3.1-8B": {
+      "input_len": 128,
+      "interpretation": "Queue-dominated upper bound versus serialized control",
+      "model": "Llama-3.1-8B",
+      "offered_qps": 2.0,
+      "optimized_p99_e2el_ms": 1980.556106,
+      "output_len": 512,
+      "p99_e2el_reduction_pct": 99.619367,
+      "p99_e2el_speedup": 262.720431,
+      "serialized_control_p99_e2el_ms": 520332.554172,
+      "source_file": "bench/bench_results/Llama-3.1-8B/NVIDIA-H200/vllm-0.18.0-all+sd(1B+p)/result/default-random-128x512-2qps-200p.json",
+      "variant": "all+sd(1B+p)"
+    },
+    "Llama-3.2-3B": {
+      "input_len": 128,
+      "interpretation": "Queue-dominated upper bound versus serialized control",
+      "model": "Llama-3.2-3B",
+      "offered_qps": 2.0,
+      "optimized_p99_e2el_ms": 1939.520214,
+      "output_len": 512,
+      "p99_e2el_reduction_pct": 99.335248,
+      "p99_e2el_speedup": 150.431947,
+      "serialized_control_p99_e2el_ms": 291765.801371,
+      "source_file": "bench/bench_results/Llama-3.2-3B/NVIDIA-H200/vllm-0.18.0-cb+as/result/default-random-128x512-2qps-200p.json",
+      "variant": "cb+as"
+    }
+  },
+  "peak_measurements": {
+    "max_concurrent_requests": {
+      "input_len": 512,
+      "model": "Llama-3.1-8B",
+      "offered_qps": 16.0,
+      "output_len": 128,
+      "source_file": "bench/bench_results/Llama-3.1-8B/NVIDIA-H200/vllm-0.18.0-no-opts/result/default-random-512x128-16qps-200p.json",
+      "value": 185,
+      "variant": "no-opts"
+    },
+    "max_output_tokens_per_s": {
+      "input_len": 512,
+      "model": "Llama-3.2-3B",
+      "offered_qps": 16.0,
+      "output_len": 128,
+      "source_file": "bench/bench_results/Llama-3.2-3B/NVIDIA-H200/vllm-0.18.0-default/result/default-random-512x128-16qps-200p.json",
+      "value": 4684.0,
+      "variant": "default"
+    },
+    "output_throughput": {
+      "input_len": 512,
+      "model": "Llama-3.1-8B",
+      "offered_qps": 16.0,
+      "output_len": 128,
+      "source_file": "bench/bench_results/Llama-3.1-8B/NVIDIA-H200/vllm-0.18.0-all+sd(1B+p)/result/default-random-512x128-16qps-200p.json",
+      "value": 1993.207881,
+      "variant": "all+sd(1B+p)"
+    },
+    "request_throughput": {
+      "input_len": 512,
+      "model": "Llama-3.1-8B",
+      "offered_qps": 16.0,
+      "output_len": 128,
+      "source_file": "bench/bench_results/Llama-3.1-8B/NVIDIA-H200/vllm-0.18.0-all+sd(1B+p)/result/default-random-512x128-16qps-200p.json",
+      "value": 15.571937,
+      "variant": "all+sd(1B+p)"
+    },
+    "telemetry": {
+      "framebuffer_mb": 130763.0,
+      "memory_util_pct": 78.0,
+      "power_w": 672.0,
+      "sm_util_pct": 100.0
+    },
+    "total_token_throughput": {
+      "input_len": 512,
+      "model": "Llama-3.1-8B",
+      "offered_qps": 16.0,
+      "output_len": 128,
+      "source_file": "bench/bench_results/Llama-3.1-8B/NVIDIA-H200/vllm-0.18.0-all+sd(1B+p)/result/default-random-512x128-16qps-200p.json",
+      "value": 9950.467467,
+      "variant": "all+sd(1B+p)"
+    }
+  },
+  "schema_version": 1,
+  "source": {
+    "bench_directory": "bench/bench_results",
+    "date_range": {
+      "first": "20260328-131335",
+      "last": "20260330-235638"
+    },
+    "environment": {
+      "cuda": "12.6",
+      "gpu": "NVIDIA H200 (one visible device per run)",
+      "python": "3.12.5",
+      "pytorch": "2.10.0+cu126",
+      "vllm": "0.18.0"
+    },
+    "result_filename_pattern": "default-random-{input}x{output}-{qps}qps-200p.json"
+  }
+}

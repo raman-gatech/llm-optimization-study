@@ -7,7 +7,7 @@ COPY figures figures
 COPY Group8-LLMOptimization.pdf Group8-LLMOptimization.pdf
 RUN python3 scripts/build_site.py --output-dir /site
 
-FROM nginxinc/nginx-unprivileged:1.27-alpine
+FROM nginxinc/nginx-unprivileged:1.31-alpine
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /site /usr/share/nginx/html
 USER 101

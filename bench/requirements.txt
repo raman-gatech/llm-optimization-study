@@ -118,7 +118,7 @@ py-cpuinfo==9.0.0
 pybase64==1.4.3
 pycountry==26.2.16
 pycparser==3.0
-pydantic==2.12.5
+pydantic==2.13.5
 pydantic-extra-types==2.11.1
 pydantic-settings==2.13.1
 pydantic_core==2.41.5

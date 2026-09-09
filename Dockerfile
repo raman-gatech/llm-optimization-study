@@ -1,4 +1,4 @@
-FROM python:3.12-alpine AS builder
+FROM python:3.14-alpine AS builder
 WORKDIR /project
 COPY scripts/build_site.py scripts/build_site.py
 COPY site site

@@ -1,5 +1,9 @@
 # Distill or Optimize? LLM Model and Runtime Optimization
 
+[![CI](https://github.com/raman-gatech/llm-optimization-study/actions/workflows/ci.yml/badge.svg)](https://github.com/raman-gatech/llm-optimization-study/actions/workflows/ci.yml)
+[![Pages](https://github.com/raman-gatech/llm-optimization-study/actions/workflows/pages.yml/badge.svg)](https://github.com/raman-gatech/llm-optimization-study/actions/workflows/pages.yml)
+[![CodeQL](https://github.com/raman-gatech/llm-optimization-study/actions/workflows/codeql.yml/badge.svg)](https://github.com/raman-gatech/llm-optimization-study/actions/workflows/codeql.yml)
+
 A reproducible ML-systems study of two complementary ways to reduce large
 language model inference cost:
 
@@ -14,6 +18,9 @@ The repository contains the experiment code, 171 raw benchmark results,
 normalized data products, GPU telemetry, 12 reproducible figures, automated
 tests, CI/security workflows, a containerized portfolio site, and the original
 [project proposal](Group8-LLMOptimization.pdf).
+
+Public portfolio site:
+[raman-gatech.github.io/llm-optimization-study](https://raman-gatech.github.io/llm-optimization-study/).
 
 > The strongest verified results are runtime results. Model-training workflows
 > are implemented, but trained weights and GSM8K accuracy summaries are not in

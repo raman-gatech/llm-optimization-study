@@ -4,6 +4,7 @@ title: "Distill or Optimize? LLM Model and Runtime Optimization Study"
 type: software
 version: 1.0.0
 date-released: 2026-09-01
+repository-code: "https://github.com/raman-gatech/llm-optimization-study"
 authors:
   - family-names: Swaminathan
     given-names: Ramanathan

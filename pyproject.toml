@@ -24,6 +24,11 @@ classifiers = [
 ]
 dependencies = []
 
+[project.urls]
+Homepage = "https://raman-gatech.github.io/llm-optimization-study/"
+Repository = "https://github.com/raman-gatech/llm-optimization-study"
+Issues = "https://github.com/raman-gatech/llm-optimization-study/issues"
+
 [project.optional-dependencies]
 analysis = [
   "matplotlib>=3.10,<4",

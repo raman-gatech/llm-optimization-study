@@ -31,7 +31,7 @@ jobs:
       - run: python analysis/export_results.py --output-dir /tmp/results
       - run: diff -u results/summary.json /tmp/results/summary.json
       - run: python scripts/build_site.py --output-dir dist
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: portfolio-site-py${{ matrix.python-version }}
           path: dist

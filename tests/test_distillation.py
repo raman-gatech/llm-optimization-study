@@ -25,6 +25,8 @@ def test_causal_shift_excludes_final_logit(loss_function) -> None:
 @pytest.mark.parametrize("loss_function", [full_kl_divergence, topk_kl_divergence])
 def test_causal_shift_scores_preceding_logit(loss_function) -> None:
     teacher = torch.zeros((1, 3, 4), dtype=torch.float32)
+    teacher[:, 1, 0] = 3.0
+    teacher[:, 1, 1] = 2.0
     labels = torch.tensor([[-100, -100, 1]])
     student = teacher.clone()
     student[:, 1, 0] = 10.0

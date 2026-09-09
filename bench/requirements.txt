@@ -102,7 +102,7 @@ opentelemetry-exporter-otlp-proto-common==1.40.0
 opentelemetry-exporter-otlp-proto-grpc==1.40.0
 opentelemetry-exporter-otlp-proto-http==1.40.0
 opentelemetry-proto==1.40.0
-opentelemetry-sdk==1.40.0
+opentelemetry-sdk==1.44.0
 opentelemetry-semantic-conventions==0.61b0
 opentelemetry-semantic-conventions-ai==0.5.1
 outlines_core==0.2.11

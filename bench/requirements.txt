@@ -120,7 +120,7 @@ pycountry==26.2.16
 pycparser==3.0
 pydantic==2.12.5
 pydantic-extra-types==2.11.1
-pydantic-settings==2.13.1
+pydantic-settings==2.15.0
 pydantic_core==2.41.5
 Pygments==2.19.2
 PyJWT==2.12.1

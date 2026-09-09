@@ -1,16 +1,8 @@
 version: 2
 updates:
-  - package-ecosystem: pip
-    directory: "/"
-    schedule:
-      interval: monthly
-    open-pull-requests-limit: 5
+  # Benchmark and training requirement files are archived for reproducibility;
+  # update them manually after rerunning the relevant environment validation.
   - package-ecosystem: github-actions
-    directory: "/"
-    schedule:
-      interval: monthly
-    open-pull-requests-limit: 5
-  - package-ecosystem: docker
     directory: "/"
     schedule:
       interval: monthly
